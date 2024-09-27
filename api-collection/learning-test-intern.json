@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "2a531629-0cc8-4896-be6f-abd2de1a2386",
+		"name": "localhost-learning-test-intern",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30653552"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"isTeacher\": false,\r\n  \"name\": \"chi\",\r\n  \"password\": \"123456789\",\r\n  \"photoUrl\": \"chikieuurlphoto\",\r\n  \"email\": \"chhikieu@gmail.com\",\r\n  \"phoneNumber\": \"635442322\",\r\n  \"profileDesc\": \"describe\",\r\n  \"gender\": 0,\r\n  \"role\": 0,\r\n  \"categoryIDs\": [1, 2, 3],\r\n  \"teacherIDs\": [3, 2],\r\n  \"position\" : null\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/user/create-user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"create-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"chikieu@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/home",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirm-mail?token=216f85dd-79d8-4ee4-9420-fec84b55a2b6",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/user/confirm-mail?token=216f85dd-79d8-4ee4-9420-fec84b55a2b6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"confirm-mail"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "216f85dd-79d8-4ee4-9420-fec84b55a2b6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchCourse",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"keyword\" :\"Spring\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/searchCourse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"searchCourse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "instructor/addCourse",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJJTlNUUlVDVE9SIl0sInVzZXJJRCI6MywiZXhwIjoxNzI4MjMyMjU0LCJzdWIiOiJraGFuaGxvY0BnbWFpbC5jb20ifQ.PMFgaiPZL49SPcEiuytRORJ_fmwMJMd2VKk7Jzh1Hi7CXCXPb8WKFDvbKdE8WhGJt1q0eCnNJXhKDksrNbPyAA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"CSS Programming Course\",\r\n    \"description\": \"Learn CSS from beginner to advanced\",\r\n    \"categoryID\": 2,\r\n    \"price\": 150000,\r\n    \"sections\": [\r\n        {\r\n            \"title\": \"Introduction to CSS\",\r\n            \"lessons\": [\r\n                {\r\n                    \"title\": \"Lesson 1: What is CSS?\",\r\n                    \"urlVideo\": \"https://example.com/what-is-css\"\r\n                },\r\n                {\r\n                    \"title\": \"Lesson 2: How to Include CSS in HTML\",\r\n                    \"urlVideo\": \"https://example.com/include-css-html\"\r\n                },\r\n                {\r\n                    \"title\": \"Lesson 3: CSS Selectors\",\r\n                    \"urlVideo\": \"https://example.com/css-selectors\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"title\": \"CSS Layouts and Positioning\",\r\n            \"lessons\": [\r\n                {\r\n                    \"title\": \"Lesson 1: CSS Box Model\",\r\n                    \"urlVideo\": \"https://example.com/css-box-model\"\r\n                },\r\n                {\r\n                    \"title\": \"Lesson 2: Flexbox in CSS\",\r\n                    \"urlVideo\": \"https://example.com/css-flexbox\"\r\n                },\r\n                {\r\n                    \"title\": \"Lesson 3: CSS Grid Layout\",\r\n                    \"urlVideo\": \"https://example.com/css-grid\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"title\": \"CSS Styling Techniques\",\r\n            \"lessons\": [\r\n                {\r\n                    \"title\": \"Lesson 1: Text Styling in CSS\",\r\n                    \"urlVideo\": \"https://example.com/css-text-styling\"\r\n                },\r\n                {\r\n                    \"title\": \"Lesson 2: Backgrounds and Borders\",\r\n                    \"urlVideo\": \"https://example.com/css-backgrounds-borders\"\r\n                },\r\n                {\r\n                    \"title\": \"Lesson 3: Responsive Design with Media Queries\",\r\n                    \"urlVideo\": \"https://example.com/css-responsive-design\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/instructor/addCourse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"instructor",
+						"addCourse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/instructor/myCourse",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJJTlNUUlVDVE9SIl0sInVzZXJJRCI6MiwiZXhwIjoxNzI2NDY2MDA3LCJzdWIiOiJjaGlraWV1QGdtYWlsLmNvbSJ9.Ua7uVYy94SK9TNT0SNsQK8rMn0Bsj2Tt07ZKYTImrePAuwwkdsJOlYKj0TLTlOT-IcIIpaZbGScECEZibVQVhA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/instructor/myCourse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"instructor",
+						"myCourse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/course/2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJTVFVERU5UIl0sInVzZXJJRCI6MSwiZXhwIjoxNzI2Mzc3NjExLCJzdWIiOiJsaW5oMTJAZ21haWwuY29tIn0.Dzr9gUmkM6aN583d38WrQ0lTuSFyZMHawBrvUO2mGJrn2yH2FKbv1uZpkDVJHGp7YrstzDKXKJUE1DC486BLQQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/course/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"course",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
